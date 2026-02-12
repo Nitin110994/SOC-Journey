@@ -1,4 +1,4 @@
-# Day 4–6: Windows Detection & Threat Hunting Notes
+# Day7-9: Windows Detection & Threat Hunting Notes
 
 ---
 
@@ -49,7 +49,25 @@ Logs help SOC analysts understand what happened on a system.
 
 These are critical for SOC investigations.
 
----
+---![successful logon](https://github.com/user-attachments/assets/e21ccdae-b343-46d2-9d69-5910e5e74864)
+### Event ID 4624 – Successful Logon
+
+Indicates a successful login attempt.
+
+SOC Use:
+- Confirm user authentication
+- Detect suspicious login times
+- Identify remote access
+
+![failed logon](https://github.com/user-attachments/assets/3bdbfd6f-a634-4733-afda-ab793f21e7f6)
+### Event ID 4625 – Failed Logon
+
+Indicates a failed login attempt.
+
+SOC Use:
+- Detect brute-force attempts
+- Monitor password spraying
+- Investigate repeated failures
 
 # 4. Accessing Windows Logs
 
