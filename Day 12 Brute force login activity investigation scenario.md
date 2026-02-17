@@ -1,5 +1,4 @@
-# Day 5 – Mini Incident Investigation
-## Scenario: Brute-Force Login Activity
+# Day 12 – Brute-Force Login Investigation
 
 As part of my SOC learning journey, I conducted a mini investigation based on a simulated brute-force login alert.
 
