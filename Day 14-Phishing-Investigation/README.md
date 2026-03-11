@@ -92,9 +92,11 @@ We've Blocked Your Account
 8. MITRE ATT&CK Mapping
 Mapped to MITRE ATT&CK
 Tactic	Technique
-Initial Access	Phishing (T1566)
-Credential Access	Credential Harvesting
-Defense Evasion	Domain spoofing
+Initial Access -	Phishing (T1566)
+
+Credential Access	- Credential Harvesting
+
+Defense Evasion - Domain spoofing
 
 
 10. Risk Assessment
