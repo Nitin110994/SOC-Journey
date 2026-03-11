@@ -104,7 +104,7 @@ Credential Access	- Credential Harvesting
 Defense Evasion - Domain spoofing
 
 
-10. Risk Assessment
+9. Risk Assessment
 
 If the user clicks the link:
 
