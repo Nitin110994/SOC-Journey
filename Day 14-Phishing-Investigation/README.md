@@ -94,7 +94,6 @@ We've Blocked Your Account
 
 
 8. MITRE ATT&CK Mapping
-Mapped to MITRE ATT&CK
 
 Tactic	Technique
 
@@ -106,8 +105,11 @@ Defense Evasion - Domain spoofing
 
 
 10. Risk Assessment
+
 If the user clicks the link:
+
 Possible outcomes:
+
 Credential theft
 Credit card theft
 Malware download
@@ -117,14 +119,16 @@ Medium–High
 
 
 10. SOC Response Actions
+    
 Recommended actions:
+
 Block the sender domain in the email gateway
 Add domain to threat intelligence block list
 Search organization mail logs for similar emails
 Notify users about phishing campaign
 Monitor authentication logs for suspicious logins
 
-11. Final Conclusion
+12. Final Conclusion
 
 The email is confirmed to be a phishing attempt designed to trick users into updating payment information through a malicious link.
 The attacker uses urgency, fear, and impersonation tactics to manipulate the victim.
