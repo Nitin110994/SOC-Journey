@@ -2,13 +2,14 @@ SOC Investigation – Phishing Email Analysis
 
 
 1. Alert Summary
+   
 A suspicious email was detected in the user's spam folder claiming that the user's cloud storage account had been blocked and their data would be deleted unless payment information was updated.
 The email attempts to create urgency and redirect the user to update payment details.
 
 
-2. Email Metadata Analysis
+3. Email Metadata Analysis
 From the header:
-recipient name
+sender name
 nitinraj1109
 
 Sender email
