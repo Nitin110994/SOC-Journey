@@ -25,6 +25,7 @@ prooutersys.biz.ua
 
 
 Indicators:
+
 Random subdomains
 Unrelated to any legitimate cloud provider
 Uses .ua domain with multiple nested subdomains
@@ -70,6 +71,7 @@ mailed-by: store.bss0007.prooutersys.biz.ua
 This domain is not associated with any major provider.
 
 Likely indicators:
+
 Check	Result
 SPF	Likely Fail
 DKIM	Likely Missing
@@ -78,6 +80,8 @@ This strongly suggests spoofing.
 
 
 7. Indicators of Compromise (IOCs)
+
+   
 Domain:
 prooutersys.biz.ua
 Subdomain:
@@ -91,7 +95,9 @@ We've Blocked Your Account
 
 8. MITRE ATT&CK Mapping
 Mapped to MITRE ATT&CK
+
 Tactic	Technique
+
 Initial Access -	Phishing (T1566)
 
 Credential Access	- Credential Harvesting
