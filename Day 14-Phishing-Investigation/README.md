@@ -7,7 +7,7 @@ A suspicious email was detected in the user's spam folder claiming that the user
 The email attempts to create urgency and redirect the user to update payment details.
 
 
-3. Email Metadata Analysis
+2. Email Metadata Analysis
 From the header:
 sender name
 nitinraj1109
