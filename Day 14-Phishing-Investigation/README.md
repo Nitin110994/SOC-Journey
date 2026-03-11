@@ -111,9 +111,13 @@ If the user clicks the link:
 Possible outcomes:
 
 Credential theft
+
 Credit card theft
+
 Malware download
+
 Account takeover
+
 Severity level:
 Medium–High
 
