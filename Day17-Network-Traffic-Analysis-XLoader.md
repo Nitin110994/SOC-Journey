@@ -78,6 +78,8 @@ This communication pattern strongly indicates malware activity.
 
 ![C2 Communication](tcp_stream_c2_communication.png)
 
+![malware stream](malware_tcp_stream.png)
+
 ---
 
 ## Network Conversation Analysis
