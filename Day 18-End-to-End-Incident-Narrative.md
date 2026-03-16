@@ -22,6 +22,10 @@ The source of these queries was identified as:
 
 This made the host a likely candidate for further investigation.
 
+## DNS Queries
+
+![DNS Query](dns_query_suspicious_domain.png)
+
 ---
 
 ## Identifying Suspicious Network Communication
@@ -65,6 +69,10 @@ The stream contained a large block of encoded data that appeared to be transmitt
 
 This behavior suggested that the system was likely sending data to an attacker-controlled server.
 
+## TCP Stream Communication
+
+![TCP Stream](tcp_stream_c2_communication.png)
+
 ---
 
 ## Conversation Analysis
@@ -83,6 +91,10 @@ Data transferred: approximately 3 MB
 Communication duration: approximately 141 minutes
 
 The sustained communication over this period strongly suggests persistent command-and-control activity.
+
+## TCP Stream Communication
+
+![TCP Stream](tcp_stream_c2_communication.png)
 
 ---
 
