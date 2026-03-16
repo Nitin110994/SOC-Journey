@@ -27,6 +27,8 @@ Destination:
 Protocol:
 
 HTTP POST
+
+
 Step 2 — Possible Explanations
 
 Before jumping to conclusions, SOC analysts consider multiple hypotheses.
@@ -52,6 +54,7 @@ malware beaconing
 command-and-control communication
 
 data exfiltration
+
 
 Step 3 — Evidence Collected During Investigation
 
@@ -102,6 +105,7 @@ Duration ~141 minutes
 
 This indicates continuous communication.
 
+
 Step 4 — Analysis
 
 Now we evaluate the evidence.
@@ -120,9 +124,17 @@ fake browser user-agent
 
 These patterns are typical of malware command-and-control traffic.
 
+
 Step 5 — Final Decision
 Classification: TRUE POSITIVE
 
 The alert represents genuine malicious activity.
 
+
 Step 6 — Justification
+
+The network traffic analysis confirmed that the internal host 10.9.5.71 attempted communication with an external command-and-control server.
+
+The HTTP POST request to /fshv/ transmitted encoded data to the external domain www.mainenugs.net, which is consistent with known XLoader malware behavior.
+
+The sustained communication over a long duration further supports the conclusion that this activity represents a true security incident rather than legitimate traffic.
