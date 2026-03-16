@@ -20,7 +20,7 @@ The source of these queries was identified as:
 
 10.9.5.71
 
-This made the host a likely candidate for further investigation.
+This made the host to put under further investigation.
 
 ## DNS Queries
 
