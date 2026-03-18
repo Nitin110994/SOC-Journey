@@ -1,12 +1,12 @@
-# 🔍 Network Scanning & Port Investigation Lab
+# Network Scanning & Port Investigation Lab
 
-## 📌 Objective
+## Objective
 
-To perform network reconnaissance, service enumeration, and host-based investigation using Nmap and Windows tools, and analyze network behavior such as CLOSE_WAIT connections.
+In this lab, I practiced scanning a Windows machine using Nmap, checking open ports, and investigating what services are running. I also looked into network connections like CLOSE_WAIT to understand system behavior.
 
 ---
 
-## 🖥️ Lab Setup
+## Lab Setup
 
 * **Attacker Machine:** Kali Linux (192.168.223.4)
 * **Target Machine:** Windows (192.168.223.5)
@@ -14,7 +14,7 @@ To perform network reconnaissance, service enumeration, and host-based investiga
 
 ---
 
-## 🔎 Step 1: Initial Scan
+## Step 1: Initial Scan
 
 ### Command:
 
@@ -28,11 +28,14 @@ nmap -sV 192.168.223.5
 
 ### Analysis:
 
-Identified a Windows machine with SMB exposed, which is a common entry point for attackers.
+The system is a Windows machine and SMB is open, which is commonly targeted in attacks.
+
+<img width="1920" height="922" alt="full ports scan" src="https://github.com/user-attachments/assets/c2f842c2-5a83-43a6-99ed-6c2949b31cc5" />
+
 
 ---
 
-## 🔍 Step 2: SMB Enumeration Attempt
+## Step 2: SMB Enumeration Attempt
 
 ### Commands:
 
@@ -47,9 +50,12 @@ smbclient -L //192.168.223.5/ -N
 
 Anonymous SMB access is disabled, indicating basic system hardening.
 
+<img width="1920" height="922" alt="SMB enum scan and os discovery" src="https://github.com/user-attachments/assets/cf6fc157-0892-45e0-bbf2-7e797323affe" />
+
+
 ---
 
-## 🧪 Step 3: Vulnerability Scan
+## Step 3: Vulnerability Scan
 
 ### Commands:
 
@@ -64,6 +70,9 @@ nmap --script vuln -p 445 192.168.223.5
 ### Analysis:
 
 Unauthenticated scans provide limited visibility; further analysis required.
+
+<img width="1920" height="922" alt="vulnerability scan" src="https://github.com/user-attachments/assets/de3466f9-2121-4a0f-be0f-ff73f4602a90" />
+
 
 ---
 
@@ -82,9 +91,12 @@ nmap --script smb-protocols -p 445 192.168.223.5
 
 System is protected against legacy SMB exploits such as EternalBlue.
 
+<img width="1920" height="922" alt="vulnerability scan" src="https://github.com/user-attachments/assets/512331db-cb55-4615-b86c-0f135558316b" />
+
+
 ---
 
-## 🌐 Step 5: Full Port Scan
+## Step 5: Full Port Scan
 
 ### Command:
 
@@ -98,7 +110,7 @@ nmap -p- -sV 192.168.223.5
 
 ---
 
-## 🔍 Step 6: Port 5040 Investigation
+## Step 6: Port 5040 Investigation
 
 ### Commands (Windows):
 
@@ -115,13 +127,19 @@ tasklist /svc /FI "PID eq 1768"
 
 Port 5040 is associated with a legitimate Windows service.
 
+<img width="1280" height="720" alt="port process maping" src="https://github.com/user-attachments/assets/dfa3d1d4-b9dc-4f92-ab05-9f595d28eba8" />
+
+
 ---
 
-## 🌐 Step 7: Network Connection Analysis
+## Step 7: Network Connection Analysis
 
 ### Observation:
 
 * Multiple CLOSE_WAIT connections from 192.168.223.4
+
+* <img width="1280" height="720" alt="pid" src="https://github.com/user-attachments/assets/4a67a321-3e14-4db9-abac-e06107a209ad" />
+
 
 ### Analysis:
 
@@ -131,19 +149,19 @@ Port 5040 is associated with a legitimate Windows service.
 
 ---
 
-## 🎯 Key Learnings
+## Key Learnings
 
-* Identifying open ports and services using Nmap
-* Understanding SMB exposure and security posture
-* Importance of full port scanning beyond default range
-* Mapping ports to processes and services
-* Interpreting TCP connection states (CLOSE_WAIT)
-* Differentiating between normal scanning activity and suspicious behavior
+How to use Nmap for scanning and service detection
+How SMB works and why it is important
+How to check if a system is hardened
+How to scan all ports, not just default ones
+How to map a port to a process in Windows
+What CLOSE_WAIT means in real scenarios
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
-This lab demonstrated a complete workflow from network scanning to host-based investigation, highlighting how to analyze exposed services and validate system behavior through process and connection analysis.
+In this lab, I went from scanning a system to investigating a specific port and understanding network behavior. It helped me understand how attackers see a system and how to analyze it from a SOC perspective.
 
 ---
