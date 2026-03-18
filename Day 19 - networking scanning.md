@@ -152,10 +152,15 @@ Port 5040 is associated with a legitimate Windows service.
 ## Key Learnings
 
 How to use Nmap for scanning and service detection
+
 How SMB works and why it is important
+
 How to check if a system is hardened
+
 How to scan all ports, not just default ones
+
 How to map a port to a process in Windows
+
 What CLOSE_WAIT means in real scenarios
 
 ---
