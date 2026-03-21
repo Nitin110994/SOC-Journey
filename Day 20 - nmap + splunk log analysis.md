@@ -74,6 +74,9 @@ Ports found:
 * 135, 139, 445
 * 8000, 8089
 
+  <img width="1920" height="923" alt="soc open port" src="https://github.com/user-attachments/assets/ca520c30-a3b7-49f2-aa24-f29bc7167a4b" />
+
+
 ---
 
 ## Step 6: Extracting Port and Service
@@ -81,11 +84,19 @@ Ports found:
 ### Query:
 
 index=main
+
 | rex max_match=0 field=_raw "(?<entry>\d+/tcp\s+open\s+\S+)"
+
 | mvexpand entry
+
 | rex field=entry "(?<port>\d+)/tcp\s+open\s+(?<service>\S+)"
+
 | eval port=tonumber(port)
+
 | table port service
+
+<img width="1920" height="923" alt="port extraction" src="https://github.com/user-attachments/assets/8f898cb6-7c1d-45b9-9b4e-f6b56e523af1" />
+
 
 ### My understanding:
 
@@ -98,19 +109,35 @@ This helped convert raw logs into readable format with port and service columns.
 ### Query:
 
 index=main
+
 | rex max_match=0 field=_raw "(?<entry>\d+/tcp\s+open\s+\S+)"
+
 | mvexpand entry
+
 | rex field=entry "(?<port>\d+)/tcp\s+open\s+(?<service>\S+)"
+
 | eval port=tonumber(port)
+
 | eval risk=case(
+
 port==445,"High (SMB)",
+
 port==8089,"High (Splunk Mgmt)",
+
 port==8000,"Medium (Splunk Web)",
+
 port==135 OR port==139,"Medium (RPC)",
+
 true(),"Low"
+
 )
+
 | where isnotnull(port)
+
 | table port service risk
+
+<img width="1920" height="923" alt="port risk level" src="https://github.com/user-attachments/assets/d33444e4-d073-4de1-8a37-74947a425e86" />
+
 
 ---
 
