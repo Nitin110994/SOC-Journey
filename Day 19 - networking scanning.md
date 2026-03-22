@@ -12,6 +12,9 @@ In this lab, I practiced scanning a Windows machine using Nmap, checking open po
 * **Target Machine:** Windows (192.168.223.5)
 * **Environment:** VirtualBox
 
+
+https://lucid.app/lucidchart/4b8b1867-e244-4341-9c49-b5373e238297/edit?viewport_loc=-486%2C672%2C2556%2C1383%2C0_0&invitationId=inv_c55b6f1b-252d-4ad8-8051-a4f1421ba23f
+
 ---
 
 ## Step 1: Initial Scan
