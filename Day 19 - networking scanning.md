@@ -12,9 +12,6 @@ In this lab, I practiced scanning a Windows machine using Nmap, checking open po
 * **Target Machine:** Windows (192.168.223.5)
 * **Environment:** VirtualBox
 
-
-<img width="2165" height="549" alt="Blank diagram" src="https://github.com/user-attachments/assets/1f1c6dfc-9a24-4e93-998f-b71ec3fc0ce3" />
-
 ---
 
 ## Step 1: Initial Scan
