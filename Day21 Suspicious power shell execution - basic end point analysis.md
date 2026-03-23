@@ -4,6 +4,10 @@
 
 While reviewing an endpoint protection dashboard (RAV Endpoint Protection), I observed multiple alerts related to suspicious PowerShell activity. The alerts were marked as *Suspicious.Argument* and required further analysis.
 
+
+<img width="1247" height="881" alt="Screenshot 2026-03-23 092523" src="https://github.com/user-attachments/assets/74ea2e9f-d4a1-48ca-9461-dab71f20019d" />
+
+
 ---
 
 ## What I Observed
@@ -39,6 +43,19 @@ From my understanding:
 ---
 
 ## My Analysis
+
+User/System
+    ↓
+PowerShell Execution
+    ↓
+Execution Policy Bypass
+    ↓
+Suspicious Script Activity
+    ↓
+Repeated Alerts (Possible Persistence)
+    ↓
+Potential Risk to System
+
 
 This does not confirm malware directly, but there are strong indicators:
 
