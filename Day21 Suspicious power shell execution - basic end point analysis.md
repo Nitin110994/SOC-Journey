@@ -44,19 +44,19 @@ From my understanding:
 
 ## My Analysis
 
-User/System
+User/System 
      ↓
 
-PowerShell Execution
+PowerShell Execution 
      ↓ 
 
-Execution Policy Bypass
+Execution Policy Bypass 
      ↓
 
-Suspicious Script Activity
+Suspicious Script Activity 
      ↓
 
-Repeated Alerts (Possible Persistence)
+Repeated Alerts (Possible Persistence) 
      ↓
 
 Potential Risk to System
