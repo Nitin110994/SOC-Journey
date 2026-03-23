@@ -45,15 +45,25 @@ From my understanding:
 ## My Analysis
 
 User/System
+
     ↓
+
 PowerShell Execution
+
     ↓
+
 Execution Policy Bypass
+
     ↓
+
 Suspicious Script Activity
+
     ↓
+
 Repeated Alerts (Possible Persistence)
+
     ↓
+
 Potential Risk to System
 
 
