@@ -1,62 +1,68 @@
-# Detection Use Case: Brute Force Login Detection
+# Detection Improvement Proposal: Brute Force Detection
 
-## Objective
-The goal is to detect brute force attacks by identifying multiple failed login attempts within a short time.
+## Current Limitation
+The current rule only detects fast brute force attacks within a short time.
 
----
-
-## Log Source
-- Windows Security Event Logs
-- Event ID: 4625 (Failed Login)
-
----
-
-## Detection Logic
-Trigger an alert when more than 5 failed login attempts happen within 2 minutes.
-
----
-
-## Detection Rule
-IF failed_login_attempts > 5 within 2 minutes  
-THEN trigger alert "Possible Brute Force Attack"
-
----
-
-## Example Query (KQL)
-
-SecurityEvent
-| where EventID == 4625
-| summarize FailedAttempts = count() by Account, IPAddress, bin(TimeGenerated, 2m)
-| where FailedAttempts > 5
-
----
-
-## Alert Details
-- Alert Name: Brute Force Attempt Detected
-- Severity: Medium
-- Attack Type: Credential Access
-
----
-
-## SOC Analyst Actions
-- Check which account is affected
-- Verify the source IP address
-- Look for successful login after failures
-- Block or investigate suspicious IP
-
----
-
-## False Positives
-- User entering wrong password multiple times
-- Misconfigured applications
-
----
-
-## False Negatives
-- Slow brute force attacks
+It may miss:
+- Slow attacks
 - Attacks from multiple IP addresses
 
 ---
+
+## Proposed Improvements
+
+### 1. Detect Slow Attacks
+Increase the time window.
+
+Example:
+IF failed_logins > 20 within 30 minutes  
+THEN trigger alert
+
+---
+
+### 2. IP-Based Detection
+Detect multiple accounts targeted from the same IP.
+
+Example:
+IF multiple accounts fail login from same IP  
+THEN trigger alert
+
+---
+
+### 3. Detect Success After Failure
+Check if a successful login happens after multiple failures.
+
+Example:
+IF failed_logins followed by successful_login  
+THEN trigger high severity alert
+
+---
+
+### 4. Add Threat Intelligence
+Check if the IP is malicious using threat intelligence.
+
+---
+
+### 5. Geo-Location Check
+Detect login from unusual locations.
+
+Example:
+IF login location is different from usual  
+THEN trigger alert
+
+---
+
+## Expected Outcome
+- Better detection of advanced attacks
+- Reduced missed attacks
+- Improved SOC visibility
+
+---
+
+## Insight
+Combining multiple detection methods helps reduce both false positives and false negatives.
+
+
 
 ## Insight
 If failed login attempts are followed by a successful login, it may indicate that the attacker guessed the password successfully.
