@@ -25,7 +25,7 @@ A detection rule is a condition that analyzes logs and triggers an alert when su
 
 
 <img width="1247" height="659" alt="Screenshot 2026-03-24 094454" src="https://github.com/user-attachments/assets/23623a13-0c90-4fad-b5ae-0af084d8b1e9" />
-
+Behaviour based detection
 
 ## Why Detection Matters
 Detection helps identify attacks early so that security teams can respond quickly and prevent damage.
