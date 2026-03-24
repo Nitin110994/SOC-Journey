@@ -42,24 +42,11 @@ From my understanding:
 
 ---
 
-## My Analysis
+## Analysis
 
-User/System 
-     ↓
 
-PowerShell Execution 
-     ↓ 
+<img width="766" height="421" alt="powershell analysis" src="https://github.com/user-attachments/assets/ff572f72-6abc-4c5e-b3b2-ff7ba4062a18" />
 
-Execution Policy Bypass 
-     ↓
-
-Suspicious Script Activity 
-     ↓
-
-Repeated Alerts (Possible Persistence) 
-     ↓
-
-Potential Risk to System
 
 
 This does not confirm malware directly, but there are strong indicators:
