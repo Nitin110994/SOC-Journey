@@ -25,8 +25,11 @@ THEN trigger alert "Possible Brute Force Attack"
 ## Example Query (KQL)
 
 SecurityEvent
+
 | where EventID == 4625
+
 | summarize FailedAttempts = count() by Account, IPAddress, bin(TimeGenerated, 2m)
+
 | where FailedAttempts > 5
 
 ---
