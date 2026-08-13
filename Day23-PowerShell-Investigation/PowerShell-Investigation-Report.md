@@ -24,6 +24,8 @@ The activity was therefore classified as **Benign / False Positive**.
 
 I started by searching Sysmon Event ID 1 for PowerShell executions on the host.
 
+![Detection Query](screenshots/01-detection-query.png)
+
 ```spl
 index=* host="DESKTOP-MCJVCAP"
 source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
@@ -44,6 +46,10 @@ The command line contained:
 
 -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzAA==
 
+![Encoded Command](screenshots/02-encoded-command.png)
+
+
+
 Because the command was encoded, I decided to investigate the process further instead of immediately treating it as malicious.
 
 Process Investigation
@@ -57,6 +63,8 @@ ParentProcessId: 3736
 ParentImage: powershell.exe
 
 I then checked PID 3736.
+
+![Process Tree](screenshots/03-process-tree.png)
 
 PID 3736 was also a PowerShell process and its parent was:
 
@@ -73,6 +81,8 @@ explorer.exe
 
 This showed that PID 4508 was started by another PowerShell process.
 
+![Parent Process](screenshots/04-parent-process.png)
+
 Encoded Command Analysis
 
 The encoded command found in PID 4508 was:
@@ -80,6 +90,8 @@ The encoded command found in PID 4508 was:
 RwBlAHQALQBQAHIAbwBjAGUAcwBzAA==
 
 I decoded the Base64 value using PowerShell with UTF-16LE encoding.
+
+![Decoded Command](screenshots/05-decoded-command.png)
 
 The decoded command was:
 
