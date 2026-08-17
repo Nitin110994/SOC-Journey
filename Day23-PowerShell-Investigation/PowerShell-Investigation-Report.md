@@ -25,6 +25,11 @@ The activity was therefore classified as **Benign / False Positive**.
 I started by searching Sysmon Event ID 1 for PowerShell executions on the host.
 
 ![Detection Query](screenshots/01-detection-query.png)
+![Encoded Command](screenshots/02-encoded-command.png)
+![Process Tree](screenshots/03-process-tree.png)
+![Parent Process](screenshots/04-parent-process.png)
+![Decoded Command](screenshots/05-decoded-command.png)
+
 
 ```spl
 index=* host="DESKTOP-MCJVCAP"
@@ -45,10 +50,6 @@ Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 The command line contained:
 
 -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzAA==
-
-![Encoded Command](screenshots/02-encoded-command.png)
-
-
 
 Because the command was encoded, I decided to investigate the process further instead of immediately treating it as malicious.
 
