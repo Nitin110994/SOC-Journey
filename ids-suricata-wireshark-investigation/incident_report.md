@@ -88,5 +88,15 @@ No evidence of the initial infection vector was found within this capture. HTTP 
 ## Limitations
 
 - This analysis is based on a single, time-bounded PCAP; the initial infection vector was not captured
+
+## Screenshots
+
+**LDAP/domain traffic confirming the environment (wiresharkworkshop.online domain):**
+
+![Domain traffic](VirtualBox_Kali_22_08_2026_20_14_00.png)
+
+**Decoded STRRAT C2 beacon stream (Follow TCP Stream), showing plaintext malware check-in data:**
+
+![STRRAT C2 stream](VirtualBox_Kali%20pcaptcpflow.png)
 - Domain age/reputation checks were not performed against the C2 IP beyond the Spamhaus DROP list already present in the ruleset
 - Only the primary C2 conversation was analyzed in depth; other flagged hosts/protocols in the capture were not exhaustively reviewed
