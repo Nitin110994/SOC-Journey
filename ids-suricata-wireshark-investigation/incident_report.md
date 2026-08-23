@@ -7,7 +7,7 @@
 
 ## Executive Summary
 
-Suricata IDS analysis of the provided PCAP identified sustained Command and Control (C2) beacon traffic consistent with the STRRAT remote access trojan (RAT). The infected host (`172.16.1.66`) communicated with an external C2 server (`141.98.10.79:12132`) approximately every 5 seconds for the duration of the capture (~10 minutes), transmitting host fingerprinting data and periodic snapshots of the victim's active window title, indicating active reconnaissance/surveillance capability. The C2 IP is independently listed on Spamhaus's DROP list, corroborating the malicious classification. The pcap capture window does not include the initial infection event; based on available evidence, infection had already occurred prior to capture start.
+I opened the PCAP in Wireshark and also ran it through Suricata. Suricata started generating STRRAT C2 alerts between the internal host 172.16.1.66 and the external IP 141.98.10.79. The infected host (`172.16.1.66`) communicated with an external C2 server (`141.98.10.79:12132`) approximately every 5 seconds for the duration of the capture (~10 minutes), transmitting host fingerprinting data and periodic snapshots of the victim's active window title, indicating active reconnaissance/surveillance capability. The C2 IP is independently listed on Spamhaus's DROP list, corroborating the malicious classification. The pcap capture window does not include the initial infection event; based on available evidence, infection had already occurred prior to capture start.
 
 ## Victim Details
 
@@ -47,10 +47,9 @@ A subset of beacons include an additional Base64-encoded field, which decodes to
 - `pounds-formula [Compatibility Mode] - PowerPoint`
 - `Fanad Head Lighthouse - Paint`
 
-This indicates STRRAT was actively reporting user activity/application focus back to the C2 operator — surveillance behavior beyond a simple heartbeat.
+This was more than just a normal C2 heartbeat. The malware was also sending the active window title back to the C2 server, which shows that it was monitoring what the user was doing.
 
-The C2 IP (`141.98.10.79`) independently triggered a separate `ET DROP Spamhaus DROP Listed Traffic Inbound` alert, corroborating the malicious classification via a second, unrelated threat intelligence source.
-
+The C2 IP (`141.98.10.79`) independently triggered a separate `ET DROP Spamhaus DROP Listed Traffic Inbound` alert, I also noticed that the same IP was flagged by the Spamhaus rule. This gave me another indication that the C2 IP was malicious.
 ## Initial Access
 
 No evidence of the initial infection vector was found within this capture. HTTP traffic to `www.msftconnecttest.com` (Windows connectivity check) and HTTPS connections to `mobile.events.data.microsoft.com` / `go.microsoft.com` (Microsoft telemetry) prior to the first C2 alert were reviewed and assessed as benign. Given STRRAT's common distribution method (malicious email attachments, often disguised `.jar` or archive files) and the absence of any download/dropper activity in this window, infection likely occurred prior to the start of this capture.
