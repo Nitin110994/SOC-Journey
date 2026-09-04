@@ -79,7 +79,9 @@ Interpreter: PowerShell); rule 100013 additionally maps to **T1027**
 live PowerShell commands on the Windows agent, and confirmed end-to-end in
 the Wazuh dashboard with correct severity and MITRE tagging.
 
-*(screenshot: dashboard showing rule 100013 alert with MITRE mapping)*
+![Rule 100013 - PowerShell stealth execution alert](rule-100013-powershell-combo-alert.png)
+
+![Rule 100013 alert - top agents evolution view](rule-100013-top-agents-evolution.png)
 
 ---
 
@@ -145,6 +147,10 @@ site — a useful reminder that a high risk score flags something worth
 investigating, not a confirmed attack. This is called out explicitly
 rather than glossed over.
 
+![Scanner run - 211 candidates checked, live domains found](scan-run-211-candidates.png)
+
+![Scan summary - top risk domains ranked](scan-summary-top-risk-domains.png)
+
 ---
 
 ## Part 3 — Integration: Feeding Wazuh from the Scanner
@@ -167,7 +173,9 @@ and 100022 additionally map to **T1566** (Phishing).
 3. Validated end-to-end: `irctc.org` correctly fired rule 100022 at
    level 13 with full MITRE tagging visible in the dashboard.
 
-*(screenshot: dashboard showing the irctc.org high-risk alert)*
+![Rule 100022 - irctc.org high-risk typosquat alert](rule-100022-irctc-org-high-risk-alert.png)
+
+![wazuh-logtest confirming JSON fields decoded correctly](wazuh-logtest-decoded.png)
 
 ---
 
