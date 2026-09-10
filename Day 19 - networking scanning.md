@@ -60,6 +60,7 @@ Anonymous SMB access is disabled, indicating basic system hardening.
 ### Commands:
 
 nmap --script smb-vuln* -p 445 192.168.223.5
+
 nmap --script vuln -p 445 192.168.223.5
 
 ### Findings:
